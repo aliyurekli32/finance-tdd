@@ -7,4 +7,9 @@ describe("Email Value Object", () => {
     const emailValueObject = EmailValueObject.create(email);
     expect(emailValueObject.getResult().props.value).toBe(email);
   });
+  it("should create an invalid email value object", () => {
+    const email = "invalid_email@mail";
+    const emailValueObject = EmailValueObject.create(email);
+    expect(emailValueObject.isFailure).toBe(true);
+  });
 });
