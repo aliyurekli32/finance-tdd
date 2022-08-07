@@ -10,6 +10,10 @@ export class EmailValueObject extends ValueObject<EmailValueObjectProps> {
     super(props);
   }
   static create(email: string): Result<EmailValueObject> {
+     const emailIsNotValidEmail = !isEmail(email);
+     if (emailIsNotValidEmail) {
+       return Result.fail<EmailValueObject>("Invalid email");
+     }
     return Result.ok<EmailValueObject>(
       new EmailValueObject({ value: "valid_email@mail.com" })
     );
