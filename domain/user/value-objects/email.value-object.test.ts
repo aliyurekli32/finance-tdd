@@ -12,4 +12,11 @@ describe("Email Value Object", () => {
     const emailValueObject = EmailValueObject.create(email);
     expect(emailValueObject.isFailure).toBe(true);
   });
+  it("should convert upper case email to lower case", () => {
+    const email = "VALID_EMAIL@mail.com";
+    const emailValueObject = EmailValueObject.create(email);
+    expect(emailValueObject.getResult().props.value).toBe(
+      "valid_email@mail.com"
+    );
+  });
 });
