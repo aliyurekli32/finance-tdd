@@ -15,7 +15,7 @@ export class EmailValueObject extends ValueObject<EmailValueObjectProps> {
        return Result.fail<EmailValueObject>("Invalid email");
      }
     return Result.ok<EmailValueObject>(
-      new EmailValueObject({ value: "valid_email@mail.com" })
+      new EmailValueObject({ value: email.toLocaleLowerCase() })
     );
   }
 }
