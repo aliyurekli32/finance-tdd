@@ -16,7 +16,7 @@ export class AppService {
       lastName: 'Strilets',
       age: 27,
     });
-
+    //
     const entity = await this.userRepository.save(user);
     return entity;
   }
